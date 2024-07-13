@@ -1,0 +1,306 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+
+<meta charset="UTF-8"/>
+
+<title>Ice Cream Parlour Bootstrap HTML5 Template</title>
+
+<meta name="description" content="Eat Restaurant Bootstrap Template">
+
+<meta name="author" content="webthemez">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/bootstrap.css' %}">
+<link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
+<link rel="stylesheet" href="{% static 'css/animate.css' %}">
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<!--	<link rel="stylesheet" href="{% static 'css/theme.css' %}">-->
+
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+
+
+</head>
+<body>
+<!--wrapper start-->
+<div class="wrapper">
+	<!--header-->
+	<header id="header">
+	<div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+  <!-- Overlay -->
+  <div class="overlay"></div>
+
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
+    <li data-target="#bs-carousel" data-slide-to="1"></li>
+    <li data-target="#bs-carousel" data-slide-to="2"></li>
+  </ol>
+  
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item slides active">
+      <div class="slide-1"></div>
+      <div class="hero">
+        <hgroup>
+		 <img src="{% static 'img/logo.png' %}" alt="logo"/>
+            <h1>Har lahzada muzqaymoq</h1>
+        </hgroup>
+        <a class="btn btn-hero btn-lg" href="#service">Muz & Qaymoq</a>
+      </div>
+    </div>
+    <div class="item slides">
+      <div class="slide-2"></div>
+      <div class="hero">        
+        <hgroup>
+		   <img src="{% static 'img/logo.png' %}" alt="logo"/>
+            <h1>Eng mazali muzqaymoqlar</h1>
+        </hgroup>       
+        <a class="btn btn-hero btn-lg" href="#service">Muz & Qaymoq</a>
+      </div>
+    </div>
+    <div class="item slides">
+      <div class="slide-3"></div>
+      <div class="hero">        
+        <hgroup>
+		 <img src="{% static 'img/logo.png' %}" alt="logo"/>
+            <h1>Kun muzqaymoq bilan maroqli</h1>
+        </hgroup>
+        <a class="btn btn-hero btn-lg" href="#service">Muz & Qaymoq</a>
+      </div>
+    </div>
+  </div> 
+
+
+	<div class="menu">
+		<nav class="navbar navbar-wrapper"> 
+      <div class="container">
+            <div class="navbar-header">
+        <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        </div>
+	    <div id="main-nav" class="collapse navbar-collapse">
+			 <ul class="nav navbar-nav">
+			  <li><a href="#header" class="scroll-link">Home</a></li>
+			  <li><a href="#service" class="scroll-link">Our Services</a></li>
+			  <li><a href="#gallery" class="scroll-link">Gallery</a></li>
+			  <li><a href="#feedback" class="scroll-link">Feedback</a></li>
+			  <li><a href="#contact" class="scroll-link">Contact</a></li>
+			</ul>
+      </div>
+      </div>  
+		</nav>
+	</div>		
+
+	
+<section class="service page-section" id="service">
+      <div class="container text-center">
+         <div class="heading">			
+			<h2>Eat & Chat</h2>			
+			<h3>Shirinliklarni yaxshi ko'ruvchilarni Ice Cream ga taklif qilamiz<br>
+			 Shirin damlarni biz bilan o'tkazing</h3>
+		</div>
+
+          <div class="row">
+			  {% for service in services %}
+            <div class="col-md-4">
+              <div class="box-area">
+                  <div class="box-area-icon">
+                    <i class="{{ service.icon }}"></i>
+                  </div>
+                  <h3>{{ service.name }}</h3>
+                  <div class="box-area-text">{{ service.body }}</div>
+              </div>
+            </div>
+			{% endfor %}
+          </div>
+      </div>
+    </section>
+	
+	<!--about us-->
+
+	 
+	<!--gallery-->
+	<section class="gallery page-section" id="gallery">
+		<div class="container">
+		  <div class="heading">			
+			<h2>Bizning Shirinliklar</h2>
+
+		</div> 
+			
+			<div id="grid-gallery" class="grid-gallery">
+
+					<section class="grid-wrap">
+						<ul class="grid">
+							<li class="grid-sizer"></li><!-- for Masonry column width -->
+							{% for product in products %}
+							<li>
+								<figure>
+									<img src="{{ product.image.url }}" alt=""/>
+									<figcaption><h3>{{ product.name }}</h3> </figcaption>
+								</figure>
+							</li>
+							{% endfor %}
+						
+						</ul>
+					</section><!-- // end small images -->
+					
+					<section class="slideshow">
+						<ul>
+							{% for product in products %}
+							<li>
+								<figure>
+									<img src="{{ product.image.url }}" alt=""/>
+									<figcaption><h3>{{ product.name }}</h3><p>{{ product.body }}</p></figcaption>
+								</figure>
+							</li>
+							{% endfor %}
+						</ul>
+						<nav>
+							<span class="icon nav-prev"></span>
+							<span class="icon nav-next"></span>
+							<span class="icon nav-close"></span>
+						</nav>
+						 
+					</section><!-- // end slideshow -->
+					
+				</div><!-- // grid-gallery -->
+			</div>
+	</section>
+	
+	<!--feedback-->
+	<section style="height: 569px" class="feedback page-section mb-3" id="feedback">
+	<div class="container">
+		<div class="heading">
+
+			<h2>Mijozlarimizning fikrlari</h2>
+
+			<h3><br></h3>
+		</div>
+
+  <div class='row'>
+    <div class='col-md-12'>
+      <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+        <!-- Bottom Carousel Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#quote-carousel" data-slide-to="0" class="active"></li>
+          <li data-target="#quote-carousel" data-slide-to="1"></li>
+          <li data-target="#quote-carousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Carousel Slides / Quotes -->
+        <div class="carousel-inner">
+
+		{% for review in reviews %}
+          <!-- Quote 1 -->
+          <div style="height: 300px" class="item {% if forloop.first %}active{% endif %}">
+            <blockquote>
+              <div class="row">
+                <div class="col-sm-3 text-center">
+                  <img class="img-circle" src="{{ review.image.url }}" style="width: 100px;height:100px;">
+                </div>
+                <div class="col-sm-9">
+                  <p>{{ review.review }}</p>
+                  <small>{{ review.name }}</small>
+                </div>
+              </div>
+            </blockquote>
+          </div>
+          <!-- Quote 2 -->
+          {% endfor %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+	</div>
+	</section>
+	<!--feedback-->
+	<section class="contact page-section mt-3" id="contact">
+	<div class="container">
+		<div class="heading">
+				
+				<h2>Contact Us</h2>
+				
+				<h3>Bizga xabaringiz bo'lsa quyida qoldiring<br>
+				Biz albatta sizga aloqaga chiqamiz </h3>
+		</div>
+	</div>
+	 <div class="container w960">
+      <div class="row">
+		<div class="done">
+			<div class="alert alert-success">
+				<button type="button" class="close" data-dismiss="alert">×</button>
+				Your message has been sent. Thank you!
+			</div>
+		</div>
+       <form method="post" action="{% url 'main:contact' %}" id="contactform">
+		   {% csrf_token %}
+          <input name="name" type="text" class="contact col-md-6" placeholder="Your Name *" >
+          <input name="email" type="email" class="contact noMarr col-md-6" placeholder="E-mail address *" >
+          <textarea name="message" class="contact col-md-12" placeholder="Message *"></textarea>
+          <button class="contact submit" type="submit">Yuborish</button>
+
+        </form>
+      </div>
+    </div>
+	</section>
+  
+	<!--footer-->
+	<section class="footer" id="footer">
+	<p class="text-center">
+		<a href="#header" class="gototop"><i class="fa fa-angle-double-up fa-2x"></i></a>
+	</p>
+	<div class="container">
+		<ul>
+			<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+			<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+			<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+			<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+			<li><a href="#"><i class="fa fa-flickr"></i></a></li>
+		</ul>
+		<p>
+			&copy; 2015 Copyright Your Website Template by <a href="http://webthemez.com">Webthemez.com</a>
+		</p>
+	</div>
+	</section>
+	
+</div><!--wrapper end-->
+
+<!--Javascripts-->
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/modernizr.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+<script src="{% static 'js/jquery-scrolltofixed.js' %}"></script>
+<script src="{% static 'js/jquery.nav.js' %}"></script>
+<script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+<script src="{% static 'js/menustick.js' %}"></script>
+<script src="{% static 'js/easing.js' %}"></script>
+<script src="{% static 'js/wow.js' %}"></script>
+<script src="{% static 'js/smoothscroll.js' %}"></script>
+<script src="{% static 'js/masonry.js' %}"></script>
+<script src="{% static 'js/imgloaded.js' %}"></script>
+<script src="{% static 'js/classie.js' %}"></script>
+<script src="{% static 'js/colorfinder.js' %}"></script>
+<script src="{% static 'js/gridscroll.js' %}"></script>
+<script src="{% static 'js/contact.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+<script src="{% static 'js/parallax.js' %}"></script>
+<script src="{% static 'js/gallery.js' %}"></script>
+
+
+<script type="text/javascript">
+jQuery(function($) {
+$(document).ready( function() {
+	$('.navbar-wrapper').stickUp();
+	});
+});
+</script>
+</body>
+</html>
